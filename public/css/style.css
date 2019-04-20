@@ -1,0 +1,65 @@
+*{
+	font-family: 'ABeeZee', sans-serif;
+	vertical-align: middle;
+}
+
+body{
+	background-color: aliceblue;
+}
+
+a{
+	outline: none;
+}
+
+thead{
+	background-color: #00b8a4;
+}
+
+.text-end{
+	text-align: end !important;
+}
+
+.submit .ac-colors, 
+.button.ac-colors{
+	border-color: #00b8a4 !important;
+	color: #00b8a4 !important;
+}
+
+.submit .ac-colors.btn-outline-primary:hover,
+.button.ac-colors.btn-outline-primary:hover{
+	background-color: #00b8a4;
+	color: white !important;
+}
+
+.click-border-effect{
+	box-shadow: none !important;
+	border-radius: 2rem;
+	transition: border-radius .5s;
+}
+
+.blur-border-effect{
+	box-shadow: none;
+	border-radius: 0 !important;
+	transition: border-radius .5s;
+}
+
+.vertical-align{
+	margin-top: 10%;
+	margin-bottom: 10%;
+}
+
+
+/*
+ * Content
+ */
+
+[role="main"] {
+  padding-top: 7rem;
+  padding-left: 3rem;
+}
+/* 
+@media (min-width: 768px) {
+  [role="main"] {
+    padding-top: 7rem; 
+  }
+} */
