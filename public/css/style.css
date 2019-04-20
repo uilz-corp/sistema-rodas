@@ -15,6 +15,10 @@ thead{
 	background-color: #00b8a4;
 }
 
+.clickable-row{
+	cursor: pointer;
+}
+
 .text-end{
 	text-align: end !important;
 }

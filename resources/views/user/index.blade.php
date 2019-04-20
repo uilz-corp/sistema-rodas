@@ -3,6 +3,7 @@
 @section('conteudo-view')
 
 @include('user.modal.create')
+@include('user.modal.update')
 
 <div class="row justify-content-between align-items-center">
     <h2 class="col-auto col-sm-auto">Usuários</h2>
@@ -26,13 +27,169 @@
     </thead>
     <tbody>
         @foreach($users as $user)
-        <tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
             <td>{{ $loop->iteration }}</td>
             <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
             <td>{{ $user->profile }}</td>
         </tr>
         @endforeach
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
+        <tr class="clickable-row" onclick="$('#updateUser').modal()">
+            <td>#</td>
+            <td>Nome e Sobrenome</td>
+            <td>email@email.com</td>
+            <td>Administrador</td>
+        </tr>
     </tbody>
     </table>
 </div>

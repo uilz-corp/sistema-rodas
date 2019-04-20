@@ -29,29 +29,17 @@
 			</a>
 			</li>
 			<li class="nav-item">
-					<a class="nav-link feather" href="{{ route('users.index') }}">
-						<span data-feather="users"></span>
-						Usuários
-					</a>
-					</li>
-					<li class="nav-item">
-							<a class="nav-link feather" href="{{ route('users.index') }}">
-								<span data-feather="users"></span>
-								Usuários
-							</a>
-							</li>
-							<li class="nav-item">
-									<a class="nav-link feather" href="{{ route('users.index') }}">
-										<span data-feather="users"></span>
-										Usuários
-									</a>
-									</li>
-									<li class="nav-item">
-											<a class="nav-link feather" href="{{ route('users.index') }}">
-												<span data-feather="users"></span>
-												Usuários
-											</a>
-											</li>
+			<a class="nav-link feather" href="{{ route('users.index') }}">
+				<span data-feather="users"></span>
+				Usuários
+			</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link feather" href="{{ route('users.index') }}">
+				<span data-feather="users"></span>
+				Usuários
+			</a>
+			</li>
 			<li class="nav-item">
 			<a class="nav-link feather" href="{{ route('users.index') }}">
 				<span data-feather="users"></span>
@@ -65,11 +53,11 @@
 			</a>
 			</li>
 			<li class="nav-item">
-					<a class="nav-link feather" href="{{ route('users.index') }}">
-						<span data-feather="users"></span>
-						Usuários
-					</a>
-					</li>
+			<a class="nav-link feather" href="{{ route('users.index') }}">
+				<span data-feather="users"></span>
+				Usuários
+			</a>
+			</li>
 			<li class="nav-item">
 			<a class="nav-link feather" href="{{ route('users.index') }}">
 				<span data-feather="users"></span>
@@ -77,23 +65,11 @@
 			</a>
 			</li>
 			<li class="nav-item">
-					<a class="nav-link feather" href="{{ route('users.index') }}">
-						<span data-feather="users"></span>
-						Usuários
-					</a>
-					</li>
-					<li class="nav-item">
-							<a class="nav-link feather" href="{{ route('users.index') }}">
-								<span data-feather="users"></span>
-								Usuários
-							</a>
-							</li>
-							<li class="nav-item">
-									<a class="nav-link feather" href="{{ route('users.index') }}">
-										<span data-feather="users"></span>
-										Usuários
-									</a>
-									</li>
+			<a class="nav-link feather" href="{{ route('users.index') }}">
+				<span data-feather="users"></span>
+				Usuários
+			</a>
+			</li>
 			<li class="nav-item">
 			<a class="nav-link feather" href="{{ route('users.index') }}">
 				<span data-feather="users"></span>
@@ -101,42 +77,113 @@
 			</a>
 			</li>
 			<li class="nav-item">
-					<a class="nav-link feather" href="{{ route('users.index') }}">
-						<span data-feather="users"></span>
-						Usuários
-					</a>
-					</li>
-					<li class="nav-item">
-							<a class="nav-link feather" href="{{ route('users.index') }}">
-								<span data-feather="users"></span>
-								Usuários
-							</a>
-							</li>
-							<li class="nav-item">
-									<a class="nav-link feather" href="{{ route('users.index') }}">
-										<span data-feather="users"></span>
-										Usuários
-									</a>
-									</li>
-									<li class="nav-item">
-											<a class="nav-link feather" href="{{ route('users.index') }}">
-												<span data-feather="users"></span>
-												Usuários
-											</a>
-											</li>
-											<li class="nav-item">
-													<a class="nav-link feather" href="{{ route('users.index') }}">
-														<span data-feather="users"></span>
-														Usuários
-													</a>
-													</li>
-													<li class="nav-item">
-															<a class="nav-link feather" href="{{ route('users.index') }}">
-																<span data-feather="users"></span>
-																Usuários
-															</a>
-															</li>
-																																																																															
+			<a class="nav-link feather" href="{{ route('users.index') }}">
+				<span data-feather="users"></span>
+				Usuários
+			</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link feather" href="{{ route('users.index') }}">
+				<span data-feather="users"></span>
+				Usuários
+			</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link feather" href="{{ route('users.index') }}">
+				<span data-feather="users"></span>
+				Usuários
+			</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link feather" href="{{ route('users.index') }}">
+				<span data-feather="users"></span>
+				Usuários
+			</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link feather" href="{{ route('users.index') }}">
+				<span data-feather="users"></span>
+				Usuários
+			</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link feather" href="{{ route('users.index') }}">
+				<span data-feather="users"></span>
+				Usuários
+			</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link feather" href="{{ route('users.index') }}">
+				<span data-feather="users"></span>
+				Usuários
+			</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link feather" href="{{ route('users.index') }}">
+				<span data-feather="users"></span>
+				Usuários
+			</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link feather" href="{{ route('users.index') }}">
+				<span data-feather="users"></span>
+				Usuários
+			</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link feather" href="{{ route('users.index') }}">
+				<span data-feather="users"></span>
+				Usuários
+			</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link feather" href="{{ route('users.index') }}">
+				<span data-feather="users"></span>
+				Usuários
+			</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link feather" href="{{ route('users.index') }}">
+				<span data-feather="users"></span>
+				Usuários
+			</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link feather" href="{{ route('users.index') }}">
+				<span data-feather="users"></span>
+				Usuários
+			</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link feather" href="{{ route('users.index') }}">
+				<span data-feather="users"></span>
+				Usuários
+			</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link feather" href="{{ route('users.index') }}">
+				<span data-feather="users"></span>
+				Usuários
+			</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link feather" href="{{ route('users.index') }}">
+				<span data-feather="users"></span>
+				Usuários
+			</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link feather" href="{{ route('users.index') }}">
+				<span data-feather="users"></span>
+				Usuários
+			</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link feather" href="{{ route('users.index') }}">
+				<span data-feather="users"></span>
+				Usuários
+			</a>
+			</li>
 		</ul>
 	</div>
 </nav>
