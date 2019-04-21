@@ -20,8 +20,11 @@ Route::get('/clear-cache', function() {
 });
 
 
-Route::get('/', ['as' => 'auth.user', 'uses' => 'Auth\LoginController@index']);
-Route::post('login', ['as' => 'auth.login', 'uses' => 'Auth\LoginController@login']);
+Route::group(['middleware' => 'auth.logout'], function () {
+    Route::get('/', ['as' => 'auth.user', 'uses' => 'Auth\LoginController@index']);
+    Route::get('login', ['as' => 'auth.user', 'uses' => 'Auth\LoginController@index']);
+    Route::post('login', ['as' => 'auth.login', 'uses' => 'Auth\LoginController@login']);
+});
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('logout', ['as' => 'auth.logout', 'uses' => 'Auth\LoginController@logout']);

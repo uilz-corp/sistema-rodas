@@ -10,6 +10,10 @@
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
 }
 
+.simple-logo{
+  width: 3rem;
+}
+
 .navbar.fixed-top{
   background-color: #f0f3f6;
 }

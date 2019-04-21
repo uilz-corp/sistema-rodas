@@ -13,3 +13,7 @@ $(document).on('submit','form',function(){
   $('.submit input').removeClass('blur-border-effect')
       .addClass('click-border-effect');
 });
+
+$('.sidebarCollapse').click(()=>{
+  $('.sidebar').toggleClass('d-none');
+});
