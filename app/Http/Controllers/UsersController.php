@@ -50,10 +50,10 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = $this->repository->all();
+        $users = $this->repository->all(['id','name','email','profile']);
         //return view('user.index', ['usuario' => $users]);
 
-        return view('user.index', compact('users'));
+        return view('user.index', ['users' => $users, 'user' => []]);
     }
 
     /**
@@ -85,18 +85,19 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
+        $id = $request->id;
         $user = $this->repository->find($id);
 
         if (request()->wantsJson()) {
-
             return response()->json([
-                'data' => $user,
+                'user' => $user,
             ]);
         }
 
-        return view('users.show', compact('user'));
+        // return view('users.show', compact('user'));
+        return '';
     }
 
     /**
@@ -123,13 +124,15 @@ class UsersController extends Controller
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function update(UserUpdateRequest $request, $id)
+    public function update(Request $request)
     {
         try {
 
-            $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
+            // $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
-            $user = $this->repository->update($request->all(), $id);
+            // dd($request->id);
+
+            $user = $this->repository->update($request->all(), $request->id);
 
             $response = [
                 'message' => 'User updated.',
@@ -141,7 +144,8 @@ class UsersController extends Controller
                 return response()->json($response);
             }
 
-            return redirect()->back()->with('message', $response['message']);
+            // return redirect()->back()->with('message', $response['message']);
+            return redirect()->route('users.index');
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {
