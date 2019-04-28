@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Validators\LoginValidator;
 
 class LoginController extends Controller
 {
@@ -40,12 +41,15 @@ class LoginController extends Controller
 
     public function login(Request $request){
         $data = $request->only('username', 'password');
+        (new LoginValidator)->username($request);
 
         try {
-            if (Auth::attempt($data, false))
-                return redirect()->route('dashboard');
+            if (Auth::attempt($data))
+                return redirect()->intended('dashboard');
             else
-                return redirect()->route('auth.user');
+                return response()->json([
+                    'message' => 'Senha incorreta.'
+                ], 400);
         } catch (\Exception $th) {
             return $th->getMessage();
         }

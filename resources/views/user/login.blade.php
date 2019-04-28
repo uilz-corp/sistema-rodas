@@ -8,13 +8,15 @@
                 <img class="mw-100" src="{{ asset('images/logo-ac.png') }}" />    
             </div>
         </div>
+        
+        <div class="row justify-content-center">
+            <div class="loading spinner-border spinner-border-sm" role="status" aria-hidden="true"></div>
+            <div id="messagesDiv" hidden class="col col-md-3 text-center alert alert-danger" role="alert">
+            </div>
+        </div>
 
         <div class="row justify-content-center">
-            @if(session('success'))
-                <h3>{{ session('success')['messages'] }}</h3>
-            @endif
-
-            {!! Form::open(['route' => 'auth.login', 'method' => 'post']) !!}
+        {!! Form::open(['route' => 'auth.login', 'method' => 'post', 'id' => 'form-login-user']) !!}
                 <div class="col">
                     @include('layout.formulario.input', ['input' => 'username', 'attributes' => 
                     ['class' => 'form-control', 'placeholder' => 'Usuário']])
@@ -28,7 +30,7 @@
                     @include('layout.formulario.submit', ['input' => 'Enviar', 'attributes' => 
                         ['class' => 'btn-lg btn btn-outline-primary ac-colors']])
                 </div>
-            {!! Form::close() !!}
+        {!! Form::close() !!}
         </div>
     </div>
 </div>

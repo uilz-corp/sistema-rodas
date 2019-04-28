@@ -18,6 +18,45 @@ $('.sidebarCollapse').click(()=>{
   $('.sidebar').toggleClass('d-none');
 });
 
+function loadingScreen(){
+  $('body').css('opacity', .5).css('pointer-events', 'none');;
+  $('.loading').toggle();
+}
+
+function loadingScreenEnd(){
+  $('body').css('opacity', 1).css('pointer-events', 'unset');
+  $('.loading').toggle();
+}
+
+$(document).on('submit','#form-login-user',function(e){
+  e.preventDefault();
+
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+      'Accept':'application/json'
+    }
+  });
+
+  $.ajax({
+    url: '/login',
+    method: 'post',
+    data: $(this).serialize(),
+
+    beforeSend: function (){
+      loadingScreen();
+    },
+    error: function(err){
+      loadingScreenEnd();
+
+      if (err.status == 422 || err.status == 400) {
+        $.each(err.responseJSON, function(key, value) {
+          $("#messagesDiv").fadeIn(400).removeAttr('hidden').html(value);
+        });
+      }
+    }
+  });
+});
 
 function getUser(e){
   e.preventDefault();
