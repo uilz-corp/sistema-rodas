@@ -43,10 +43,11 @@ $(document).on('submit','#form-login-user',function(e){
     method: 'post',
     data: $(this).serialize(),
 
-    beforeSend: function (){
-      loadingScreen();
+    beforeSend: loadingScreen(),
+    success: ()=>{
+        window.location = 'dashboard'
     },
-    error: function(err){
+    error: (err)=>{
       loadingScreenEnd();
 
       if (err.status == 422 || err.status == 400) {

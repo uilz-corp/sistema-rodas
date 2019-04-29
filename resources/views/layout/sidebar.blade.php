@@ -24,7 +24,7 @@
 			</li>
 			<li class="bg-dark my-4 d-md-none dropdown-divider"></li>
 			<li class="nav-item">
-			<a class="nav-link feather" href="{{ route('dashboard') }}">
+			<a class="nav-link feather" onclick="loadingScreen()" href="{{ route('dashboard') }}">
 				<span data-feather="activity"></span>
 				Dashboard
 			</a>
