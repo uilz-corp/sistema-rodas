@@ -76,6 +76,7 @@ function getUser(e){
     data: {
       id: id,
     },
+    beforeSend: loadingScreen(),
     success: function(result){
       var $inputs = $('#form-update-user input');
 
@@ -85,6 +86,7 @@ function getUser(e){
         }).val(value);
       });
 
+      loadingScreenEnd();
       $('#modal-update-user').modal();
     }
   });
