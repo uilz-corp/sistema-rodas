@@ -1,7 +1,5 @@
 $(document).ready(()=>{
   $('.loading').toggle();
-
-  $('#welcome').slideDOwn(3000);
 });
 
 // ============= Simple events ===============
@@ -39,7 +37,7 @@ $(document).on('submit','#form-login-user',function(e){
   });
 
   $.ajax({
-    url: '/login',
+    url: 'login',
     method: 'post',
     data: $(this).serialize(),
 
