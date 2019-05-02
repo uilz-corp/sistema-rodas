@@ -2,17 +2,19 @@
 
 @include('layout.sidebar')
 
+
 <div id="view-conteudo">
-<div class="justify-content-center">
+        <div class="justify-content-center">
+        {{--  <div id="welcome" class="alert alert-success alert-dismissible fade show text-center to-front" role="alert">
+                Bem vindo, fulano.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+        </div>  --}}
         <main role="main" class="col-md-10 col-lg-10 ml-sm-auto">
-        <div class="container">
-        <div class="row h-100 justify-content-center">
-                <div class="loading align-self-center spinner-border spinner-border-sm" role="status" aria-hidden="true"></div>
-        </div>
-        </div>
         @yield('conteudo-view')
         </main>
-</div>
+        </div>
 </div>
 
 @include('layout/footer')

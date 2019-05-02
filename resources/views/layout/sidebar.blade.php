@@ -24,13 +24,13 @@
 			</li>
 			<li class="bg-dark my-4 d-md-none dropdown-divider"></li>
 			<li class="nav-item">
-			<a class="nav-link feather" onclick="loadingScreen()" href="{{ route('dashboard') }}">
+			<a class="nav-link feather" onclick="loading()" href="{{ route('dashboard') }}">
 				<span data-feather="activity"></span>
 				Dashboard
 			</a>
 			</li>
 			<li class="nav-item">
-			<a class="nav-link feather" onclick="loadingScreen()" href="{{ route('users.index') }}">
+			<a class="nav-link feather" onclick="loading()" href="{{ route('users.index') }}">
 				<span data-feather="users"></span>
 				Usuários
 			</a>

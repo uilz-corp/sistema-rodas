@@ -10,7 +10,6 @@
         </div>
         
         <div class="row justify-content-center">
-            <div class="loading spinner-border spinner-border-sm" role="status" aria-hidden="true"></div>
             <div id="messagesDiv" hidden class="col col-md-3 text-center alert alert-danger" role="alert">
             </div>
         </div>

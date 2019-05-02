@@ -51,7 +51,7 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         </label>
         @include('layout.formulario.submit', ['input' => 'Cadastrar', 'attributes' => 
-            ['class' => 'btn btn-success']])
+            ['class' => 'btn btn-success', 'onclick' => 'loading()']])
     </div>
     {!! Form::close() !!}
     </div>

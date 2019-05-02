@@ -1,3 +1,10 @@
+$(document).ready(()=>{
+  $('.loading').toggle();
+
+  $('#welcome').slideDOwn(3000);
+});
+
+// ============= Simple events ===============
 
 $(document).on('focus','.button, input',function(){
   $(this).removeClass('blur-border-effect')
@@ -18,15 +25,8 @@ $('.sidebarCollapse').click(()=>{
   $('.sidebar').toggleClass('d-none');
 });
 
-function loadingScreen(){
-  $('body').css('opacity', .5).css('pointer-events', 'none');;
-  $('.loading').toggle();
-}
+// ============= Complex events ===============
 
-function loadingScreenEnd(){
-  $('body').css('opacity', 1).css('pointer-events', 'unset');
-  $('.loading').toggle();
-}
 
 $(document).on('submit','#form-login-user',function(e){
   e.preventDefault();
@@ -43,12 +43,12 @@ $(document).on('submit','#form-login-user',function(e){
     method: 'post',
     data: $(this).serialize(),
 
-    beforeSend: loadingScreen(),
+    beforeSend: loading(),
     success: ()=>{
         window.location = 'dashboard'
     },
     error: (err)=>{
-      loadingScreenEnd();
+      loading();
 
       if (err.status == 422 || err.status == 400) {
         $.each(err.responseJSON, function(key, value) {
@@ -58,6 +58,15 @@ $(document).on('submit','#form-login-user',function(e){
     }
   });
 });
+
+
+// ============= Simple functions ===============
+
+function loading(){
+  $('.loading').toggle();
+}
+
+// ============= Complex functions ===============
 
 function getUser(e){
   e.preventDefault();
@@ -76,7 +85,7 @@ function getUser(e){
     data: {
       id: id,
     },
-    beforeSend: loadingScreen(),
+    beforeSend: loading(),
     success: function(result){
       var $inputs = $('#form-update-user input');
 
@@ -86,7 +95,7 @@ function getUser(e){
         }).val(value);
       });
 
-      loadingScreenEnd();
+      loading();
       $('#modal-update-user').modal();
     }
   });
