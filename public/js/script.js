@@ -68,7 +68,7 @@ function loading(){
 
 function getUser(e){
   e.preventDefault();
-  let id = e.path[1].id;
+  let id = e.composedPath()[1].id;
 
   $.ajaxSetup({
     headers: {
