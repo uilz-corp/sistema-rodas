@@ -1,5 +1,7 @@
 $(document).ready(()=>{
   $('.loading').toggle();
+
+  $('input[name=cpf]').mask('000.000.000-00');
 });
 
 // ============= Simple events ===============

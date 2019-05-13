@@ -40,8 +40,11 @@ class LoginController extends Controller
     }
 
     public function login(Request $request){
-        $data = $request->only('username', 'password');
-        (new LoginValidator)->username($request);
+        $data = $request->only('cpf', 'password');
+        $data['cpf'] = str_replace(['.','-'], '', $data['cpf']);
+
+        print_r($data);
+        (new LoginValidator)->cpf($request);
 
         try {
             if (Auth::attempt($data))

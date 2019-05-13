@@ -17,8 +17,8 @@
         <div class="row justify-content-center">
         {!! Form::open(['route' => 'auth.login', 'method' => 'post', 'id' => 'form-login-user']) !!}
                 <div class="col">
-                    @include('layout.formulario.input', ['input' => 'username', 'attributes' => 
-                    ['class' => 'form-control', 'placeholder' => 'Usuário']])
+                    @include('layout.formulario.input', ['input' => 'cpf', 'attributes' => 
+                    ['class' => 'form-control', 'placeholder' => 'CPF']])
                 </div>
                 <div class="col">
                     @include('layout.formulario.password', ['input' => 'password',

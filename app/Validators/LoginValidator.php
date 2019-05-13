@@ -21,12 +21,12 @@ class LoginValidator extends Controller
         ValidatorInterface::RULE_UPDATE => [],
     ];
 
-    public function username($request){
+    public function cpf($request){
         $messages = [
-            'exists' => 'Usuário não cadastrado.',
+            'exists' => 'CPF não cadastrado.',
         ];
         $rules = [
-            'username' => 'exists:users'
+            'cpf' => 'exists:users'
         ];
 
         $this->validate($request, $rules, $messages);
