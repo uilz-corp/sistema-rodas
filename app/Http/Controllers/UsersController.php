@@ -48,15 +48,16 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $data = $this->repository->all(['id','name','email','profile']);
+        $data = $this->repository->all(['id','nome','email','perfil']);
         $page = [
             'tableTitle' => 'Usuários',
             'modalTitle' => 'usuário',
-            'form' => 'user'
+            'page' => 'user',
+            'icon' => 'users',
+            'route' => 'users'
         ];
         //return view('user.index', ['usuario' => $users]);
-
-        return view('page.index', ['data' => $data, 'user' => [], 'page' => $page]);
+        return view('page.index', ['data' => $data, 'page' => $page]);
     }
 
     /**

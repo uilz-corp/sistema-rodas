@@ -68,9 +68,10 @@ function loading(){
 
 // ============= Complex functions ===============
 
-function getUser(e){
+function getData(e){
   e.preventDefault();
   let id = e.composedPath()[1].id;
+  let route = $('[data-data]').data('data');
 
   $.ajaxSetup({
     headers: {
@@ -80,7 +81,7 @@ function getUser(e){
   });
 
   $.ajax({
-    url: 'users/show',
+    url: route + '/show',
     method: 'post',
     data: {
       id: id,

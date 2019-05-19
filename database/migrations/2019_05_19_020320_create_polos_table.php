@@ -16,6 +16,7 @@ class CreatePolosTable extends Migration
 	public function up()
 	{
 		Schema::create('polos', function(Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('descricao');
             $table->string('tipo_polo');
 

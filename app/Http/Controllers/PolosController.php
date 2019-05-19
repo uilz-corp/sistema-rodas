@@ -10,7 +10,7 @@ use Prettus\Validator\Exceptions\ValidatorException;
 use App\Http\Requests\PolosCreateRequest;
 use App\Http\Requests\PolosUpdateRequest;
 use App\Repositories\PolosRepository;
-use App\Validators\PolosValidator;
+use App\Services\PoloService;
 
 /**
  * Class PolosController.
@@ -25,20 +25,20 @@ class PolosController extends Controller
     protected $repository;
 
     /**
-     * @var PolosValidator
+     * @var PoloService
      */
-    protected $validator;
+    protected $service;
 
     /**
      * PolosController constructor.
      *
      * @param PolosRepository $repository
-     * @param PolosValidator $validator
+     * @param PoloService $service
      */
-    public function __construct(PolosRepository $repository, PolosValidator $validator)
+    public function __construct(PolosRepository $repository, PoloService $service)
     {
         $this->repository = $repository;
-        $this->validator  = $validator;
+        $this->service  = $service;
     }
 
     /**
@@ -52,9 +52,11 @@ class PolosController extends Controller
         $page = [
             'tableTitle' => 'Polos',
             'modalTitle' => 'polo',
-            'form' => 'polo'
+            'page' => 'polo',
+            'icon' => 'home',
+            'route' => 'polos'
         ];
-        return view('page.index', ['data' => $data, 'user' => [], 'page' => $page]);
+        return view('page.index', ['data' => $data, 'page' => $page]);
     }
 
     /**
@@ -68,33 +70,15 @@ class PolosController extends Controller
      */
     public function store(PolosCreateRequest $request)
     {
-        try {
+        $request = $this->service->store($request->all());
+        $polo = $request['success'] ? $request['data'] : $request['messages'];
 
-            $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
+        session()->flash('success', [
+            'success' => $request['success'],
+            'messages' => $request['messages']
+        ]);
 
-            $polo = $this->repository->create($request->all());
-
-            $response = [
-                'message' => 'Polos created.',
-                'data'    => $polo->toArray(),
-            ];
-
-            if ($request->wantsJson()) {
-
-                return response()->json($response);
-            }
-
-            return redirect()->back()->with('message', $response['message']);
-        } catch (ValidatorException $e) {
-            if ($request->wantsJson()) {
-                return response()->json([
-                    'error'   => true,
-                    'message' => $e->getMessageBag()
-                ]);
-            }
-
-            return redirect()->back()->withErrors($e->getMessageBag())->withInput();
-        }
+       return redirect()->route('polos.index');
     }
 
     /**

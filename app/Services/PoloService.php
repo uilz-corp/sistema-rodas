@@ -2,19 +2,17 @@
 
 namespace App\Services;
 
-use App\Repositories\UserRepository;
-// use App\Validators\UserValidator;
-// use Prettus\Validator\Contracts\ValidatorInterface;
+use App\Repositories\PolosRepository;
 use Prettus\Validator\Exceptions\ValidatorException;
 use Exception;
 use Illuminate\Database\QueryException;
 
-class UserService{
+class PoloService{
 
     private $repository;
     // private $validator;
 
-    public function __construct(UserRepository $repository)
+    public function __construct(PolosRepository $repository)
     {
         $this->repository = $repository;
         // $this->validator = $validator;
@@ -23,13 +21,12 @@ class UserService{
     public function store($data){
         try {
             //$this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
-            $data['senha'] = bcrypt($data['senha']);
-            $usuario = $this->repository->create($data);
+            $polo = $this->repository->create($data);
             
             return[
                 'success' => true,
-                'messages' => 'Usuário cadastrado',
-                'data' => $usuario
+                'messages' => 'Polo cadastrado',
+                'data' => $polo
             ];
         } catch (Exception $th) {
             switch (get_class($th)) {

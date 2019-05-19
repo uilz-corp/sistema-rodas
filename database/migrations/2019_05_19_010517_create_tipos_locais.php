@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TiposLocais extends Migration
+class CreateTiposLocais extends Migration
 {
     /**
      * Run the migrations.
@@ -16,6 +16,8 @@ class TiposLocais extends Migration
         Schema::create('tipos_locais', function(Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('descricao');
+
+            $table->timestamps();
         });
     }
 

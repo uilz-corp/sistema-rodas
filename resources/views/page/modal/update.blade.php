@@ -2,7 +2,7 @@
 <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
     <div class="modal-header">
-        <h5 class="modal-title">Editar {{ $page['modalTitle'] }}</h5>
+        <h5 class="modal-title"><span data-feather={{ $page['icon'] }}></span> Editar {{ $page['modalTitle'] }}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
@@ -13,8 +13,8 @@
                 <h3>{{ session('success')['messages'] }}</h3>
             @endif  --}}
 
-            {!! Form::open(['route' => $page['form'] . 's.update', 'method' => 'put', 'id' => 'form-update']) !!}
-            @include('page.modal.' . $page['form'] . '.update')
+            {!! Form::open(['route' => $page['route'] . '.update', 'method' => 'put', 'id' => 'form-update']) !!}
+            @include('page.' . $page['page'] . '.fields.update')
         </div>
     </div>
     <div class="modal-footer">

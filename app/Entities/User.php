@@ -19,17 +19,19 @@ class User extends Authenticatable implements Transformable
     use TransformableTrait;
     use Notifiable;
     use SoftDeletes;
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+   
+    protected $table = 'usuarios';
+
     protected $fillable = [
-        'name','username','password','email','email_verified_at','gender','cpf','birth','profile','permission'
+        'nome','senha','email','email_verified_at','genero','cpf','data_nasc','perfil','permissao'
     ];
 
     protected $hidden = [
-        'password'
+        'senha'
     ];
 
+    public function getAuthPassword()
+    {
+        return $this->senha;
+    }
 }

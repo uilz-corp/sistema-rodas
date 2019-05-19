@@ -45,7 +45,6 @@ class LoginController extends Controller
 
         (new LoginValidator)->cpf($request);
 
-
         try {
             if (Auth::attempt($data))
                 return redirect()->intended('dashboard');
