@@ -36,15 +36,15 @@ class LoginController extends Controller
     }
 
     public function index(){
-        return view('user.login');
+        return view('login');
     }
 
     public function login(Request $request){
         $data = $request->only('cpf', 'password');
         $data['cpf'] = str_replace(['.','-'], '', $data['cpf']);
 
-        print_r($data);
         (new LoginValidator)->cpf($request);
+
 
         try {
             if (Auth::attempt($data))

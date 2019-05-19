@@ -1,7 +1,7 @@
 $(document).ready(()=>{
   $('.loading').toggle();
 
-  $('input[name=cpf]').mask('000.000.000-00');
+  // $('input[name=cpf]').mask('000.000.000-00');
 });
 
 // ============= Simple events ===============
@@ -87,16 +87,16 @@ function getUser(e){
     },
     beforeSend: loading(),
     success: function(result){
-      var $inputs = $('#form-update-user input');
+      var inputs = $('#form-update input');
 
       $.each(result.user, function(key, value) {
-        $inputs.filter(function() {
+        inputs.filter(function() {
           return key == this.name;
         }).val(value);
       });
 
       loading();
-      $('#modal-update-user').modal();
+      $('#modal-update').modal();
     }
   });
 }

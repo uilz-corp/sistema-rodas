@@ -32,4 +32,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', 'UsersController', ['except' => ['show', 'update']]);
         Route::post('users/show', ['as' => 'users.show', 'uses' => 'UsersController@show']);
         Route::put('users/update', ['as' => 'users.update', 'uses' => 'UsersController@update']);
+
+    Route::resource('polos', 'PolosController', ['except' => ['show', 'update']]);
+        Route::post('polos/show', ['as' => 'polos.show', 'uses' => 'PolosController@show']);
+        Route::put('polos/update', ['as' => 'polos.update', 'uses' => 'PolosController@update']);
 });

@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
 use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserUpdateRequest;
@@ -50,10 +48,15 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = $this->repository->all(['id','name','email','profile']);
+        $data = $this->repository->all(['id','name','email','profile']);
+        $page = [
+            'tableTitle' => 'Usuários',
+            'modalTitle' => 'usuário',
+            'form' => 'user'
+        ];
         //return view('user.index', ['usuario' => $users]);
 
-        return view('user.index', ['users' => $users, 'user' => []]);
+        return view('page.index', ['data' => $data, 'user' => [], 'page' => $page]);
     }
 
     /**
@@ -110,8 +113,9 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user = $this->repository->find($id);
+        $page = null;
 
-        return view('users.edit', compact('user'));
+        return view('users.edit', compact('user'), $page);
     }
 
     /**

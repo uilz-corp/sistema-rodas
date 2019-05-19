@@ -36,9 +36,9 @@
 			</a>
 			</li>
 			<li class="nav-item">
-			<a class="nav-link feather" href="{{ route('users.index') }}">
-				<span data-feather="users"></span>
-				Usuários
+			<a class="nav-link feather" href="{{ route('polos.index') }}">
+				<span data-feather="home"></span>
+				Polos
 			</a>
 			</li>
 			<li class="nav-item">
