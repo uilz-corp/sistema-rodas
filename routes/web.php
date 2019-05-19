@@ -36,4 +36,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('polos', 'PolosController', ['except' => ['show', 'update']]);
         Route::post('polos/show', ['as' => 'polos.show', 'uses' => 'PolosController@show']);
         Route::put('polos/update', ['as' => 'polos.update', 'uses' => 'PolosController@update']);
+
+    Route::resource('temas', 'TemasController', ['except' => ['show', 'update']]);
+        Route::post('temas/show', ['as' => 'temas.show', 'uses' => 'TemasController@show']);
+        Route::put('temas/update', ['as' => 'temas.update', 'uses' => 'TemasController@update']);
 });

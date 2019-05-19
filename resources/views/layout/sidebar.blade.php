@@ -36,6 +36,12 @@
 			</a>
 			</li>
 			<li class="nav-item">
+			<a class="nav-link feather" onclick="loading()" href="{{ route('temas.index') }}">
+				<span data-feather="clipboard"></span>
+				Temas
+			</a>
+			</li>
+			<li class="nav-item">
 			<a class="nav-link feather" onclick="loading()" href="{{ route('polos.index') }}">
 				<span data-feather="home"></span>
 				Polos

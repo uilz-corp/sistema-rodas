@@ -90,7 +90,7 @@ function getData(e){
     success: function(result){
       var inputs = $('#form-update input');
 
-      $.each(result.user, function(key, value) {
+      $.each(result.data, function(key, value) {
         inputs.filter(function() {
           return key == this.name;
         }).val(value);

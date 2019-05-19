@@ -96,7 +96,7 @@ class UsersController extends Controller
 
         if (request()->wantsJson()) {
             return response()->json([
-                'user' => $user,
+                'data' => $user,
             ]);
         }
 
@@ -140,7 +140,7 @@ class UsersController extends Controller
             $user = $this->repository->update($request->all(), $request->id);
 
             $response = [
-                'message' => 'User updated.',
+                'message' => 'Usuário atualizado.',
                 'data'    => $user->toArray(),
             ];
 

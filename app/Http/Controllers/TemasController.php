@@ -7,35 +7,35 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
-use App\Http\Requests\PolosCreateRequest;
-use App\Http\Requests\PolosUpdateRequest;
-use App\Repositories\PolosRepository;
-use App\Services\PoloService;
+use App\Http\Requests\TemasCreateRequest;
+use App\Http\Requests\TemasUpdateRequest;
+use App\Repositories\TemasRepository;
+use App\Services\TemaService;
 
 /**
- * Class PolosController.
+ * Class TemasController.
  *
  * @package namespace App\Http\Controllers;
  */
-class PolosController extends Controller
+class TemasController extends Controller
 {
     /**
-     * @var PolosRepository
+     * @var TemasRepository
      */
     protected $repository;
 
     /**
-     * @var PoloService
+     * @var TemasValidator
      */
     protected $service;
 
     /**
-     * PolosController constructor.
+     * TemasController constructor.
      *
-     * @param PolosRepository $repository
-     * @param PoloService $service
+     * @param TemasRepository $repository
+     * @param TemasValidator $validator
      */
-    public function __construct(PolosRepository $repository, PoloService $service)
+    public function __construct(TemasRepository $repository, TemaService $service)
     {
         $this->repository = $repository;
         $this->service  = $service;
@@ -50,11 +50,11 @@ class PolosController extends Controller
     {
         $data = $this->repository->all();
         $page = [
-            'tableTitle' => 'Polos',
-            'modalTitle' => 'polo',
-            'page' => 'polo',
-            'icon' => 'home',
-            'route' => 'polos'
+            'tableTitle' => 'Temas',
+            'modalTitle' => 'tema',
+            'page' => 'tema',
+            'icon' => 'clipboard',
+            'route' => 'temas'
         ];
         return view('page.index', ['data' => $data, 'page' => $page]);
     }
@@ -62,23 +62,23 @@ class PolosController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  PolosCreateRequest $request
+     * @param  TemasCreateRequest $request
      *
      * @return \Illuminate\Http\Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function store(PolosCreateRequest $request)
+    public function store(Request $request)
     {
         $request = $this->service->store($request->all());
-        $polo = $request['success'] ? $request['data'] : $request['messages'];
+        $tema = $request['success'] ? $request['data'] : $request['messages'];
 
         session()->flash('success', [
             'success' => $request['success'],
             'messages' => $request['messages']
         ]);
 
-       return redirect()->route('polos.index');
+       return redirect()->route('temas.index');
     }
 
     /**
@@ -91,11 +91,11 @@ class PolosController extends Controller
     public function show(Request $request)
     {
         $id = $request->id;
-        $polo = $this->repository->find($id);
+        $tema = $this->repository->find($id);
 
         if (request()->wantsJson()) {
             return response()->json([
-                'data' => $polo,
+                'data' => $tema,
             ]);
         }
 
@@ -111,15 +111,15 @@ class PolosController extends Controller
      */
     public function edit($id)
     {
-        $polo = $this->repository->find($id);
+        $tema = $this->repository->find($id);
 
-        return view('polos.edit', compact('polo'));
+        return view('temas.edit', compact('tema'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  PolosUpdateRequest $request
+     * @param  TemasUpdateRequest $request
      * @param  string            $id
      *
      * @return Response
@@ -129,14 +129,12 @@ class PolosController extends Controller
     public function update(Request $request)
     {
         try {
-
             // $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
-
-            $polo = $this->repository->update($request->all(), $request->id);
+            $tema = $this->repository->update($request->all(), $request->id);
 
             $response = [
-                'message' => 'Polo atualizado.',
-                'data'    => $polo->toArray(),
+                'message' => 'Tema atualizado.',
+                'data'    => $tema->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -144,7 +142,7 @@ class PolosController extends Controller
             }
 
             // return redirect()->back()->with('message', $response['message']);
-            return redirect()->route('polos.index');
+            return redirect()->route('temas.index');
         } catch (ValidatorException $e) {
 
             if ($request->wantsJson()) {
@@ -174,11 +172,11 @@ class PolosController extends Controller
         if (request()->wantsJson()) {
 
             return response()->json([
-                'message' => 'Polos deleted.',
+                'message' => 'Temas deleted.',
                 'deleted' => $deleted,
             ]);
         }
 
-        return redirect()->back()->with('message', 'Polos deleted.');
+        return redirect()->back()->with('message', 'Temas deleted.');
     }
 }
