@@ -7,11 +7,11 @@ use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
 /**
- * Class Temas.
+ * Class Subtemas.
  *
  * @package namespace App\Entities;
  */
-class Temas extends Model implements Transformable
+class Subtemas extends Model implements Transformable
 {
     use TransformableTrait;
 
@@ -20,10 +20,10 @@ class Temas extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = ['descricao'];
+    protected $fillable = ['descricao', 'id_tema'];
 
-    public function subtemas()
+    public function tema()
     {
-        return $this->hasMany(Subtemas::class, 'id_tema');
+        return $this->belongsTo(Temas::class);
     }
 }

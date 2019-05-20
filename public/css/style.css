@@ -19,6 +19,10 @@ thead{
 	background-color: #00b8a4;
 }
 
+.ac-color{
+	color: #00b8a4;
+}
+
 .to-front{
 	z-index:    9998;
 }
@@ -91,6 +95,17 @@ thead{
 	margin-bottom: 10%;
 }
 
+
+/* dataTable styles */
+.dataTables_wrapper .dataTables_filter {
+  width: 100%;
+  text-align: center !important;
+}
+
+#subtemasTable_wrapper{
+	flex: 0 0 100%;
+	max-width: 100%;
+}
 
 /*
  * Content

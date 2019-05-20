@@ -56,6 +56,7 @@ class TemasController extends Controller
             'icon' => 'clipboard',
             'route' => 'temas'
         ];
+
         return view('page.index', ['data' => $data, 'page' => $page]);
     }
 
@@ -92,10 +93,12 @@ class TemasController extends Controller
     {
         $id = $request->id;
         $tema = $this->repository->find($id);
+        $subtemas = json_encode($tema->subtemas()->get());
 
         if (request()->wantsJson()) {
             return response()->json([
                 'data' => $tema,
+                'subtemas' => $subtemas
             ]);
         }
 

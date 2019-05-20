@@ -18,8 +18,8 @@
     </div>
     </div>
 <div class="card-body">
-    <div class="row table-responsive">
-        <table data-data={{ $page['route'] }} class="table bg-white table-hover table-sm">
+    <div data-data={{ $page['route'] }} class="row ml-0 table-responsive">
+        <table id="indexTable" class="table bg-white table-hover table-sm p-3">
             @include('page.' . $page['page'] . '.table')
         </table>
     </div>

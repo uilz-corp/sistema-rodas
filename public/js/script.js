@@ -1,17 +1,44 @@
 $(document).ready(()=>{
   $('.loading').toggle();
 
+  window.language = {
+    "sEmptyTable": "Nenhum registro encontrado",
+    "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+    "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+    "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+    "sInfoPostFix": "",
+    "sInfoThousands": ".",
+    "sLengthMenu": "Exibindo _MENU_ resultados por página",
+    "sLoadingRecords": "Carregando...",
+    "sProcessing": "Processando...",
+    "sZeroRecords": "Nenhum registro encontrado",
+    "sSearch": "Pesquisar",
+    "oPaginate": {
+        "sNext": "Próximo",
+        "sPrevious": "Anterior",
+        "sFirst": "Primeiro",
+        "sLast": "Último"
+    },
+    "oAria": {
+        "sSortAscending": ": Ordenar colunas de forma ascendente",
+        "sSortDescending": ": Ordenar colunas de forma descendente"
+    }
+  }
+
+  $('#indexTable').DataTable({"oLanguage": language});
+
   // $('input[name=cpf]').mask('000.000.000-00');
 });
 
+
 // ============= Simple events ===============
 
-$(document).on('focus','.button, input',function(){
+$(document).on('focus','.button, select, input',function(){
   $(this).removeClass('blur-border-effect')
       .addClass('click-border-effect');
 });
 
-$(document).on('blur', '.button, input',function(){
+$(document).on('blur', '.button, select, input',function(){
   $(this).addClass('blur-border-effect')
       .removeClass('click-border-effect');
 });
@@ -97,6 +124,23 @@ function getData(e){
       });
 
       loading();
+
+      if (route === 'temas'){
+        let subtemas = $.parseJSON(result.subtemas);
+
+        $('#subtemasTable').DataTable({
+          "info": false,
+          "paging": false,
+          "dom": 'ftip',
+          "oLanguage": window.language,
+          "data": subtemas,
+          "columns" : [
+            { "data": "id" },
+            { "data": "descricao" },
+          ]
+        });
+      }
+      
       $('#modal-update').modal();
     }
   });
