@@ -1,5 +1,5 @@
 $(document).ready(()=>{
-  $('.loading').toggle();
+  loading();
 
   window.language = {
     "sEmptyTable": "Nenhum registro encontrado",

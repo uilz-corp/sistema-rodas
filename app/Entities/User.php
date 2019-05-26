@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Prettus\Repository\Traits\TransformableTrait;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Notifications\UserResetPasswordNotification;
+
 
 /**
  * Class User.
@@ -33,5 +35,10 @@ class User extends Authenticatable implements Transformable
     public function getAuthPassword()
     {
         return $this->senha;
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new UserResetPasswordNotification($token));
     }
 }

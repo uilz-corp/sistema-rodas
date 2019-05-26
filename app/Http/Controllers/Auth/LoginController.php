@@ -50,7 +50,7 @@ class LoginController extends Controller
                 return redirect()->intended('dashboard');
             else
                 return response()->json([
-                    'message' => 'Senha incorreta.'
+                    'message' => 'Senha incorreta. <a href="senha/esqueci-senha">Esqueceu?</a>'
                 ], 400);
         } catch (\Exception $th) {
             return $th->getMessage();

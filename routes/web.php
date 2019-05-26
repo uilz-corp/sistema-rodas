@@ -24,6 +24,11 @@ Route::group(['middleware' => 'auth.logout'], function () {
     Route::get('/', ['as' => 'auth.user', 'uses' => 'Auth\LoginController@index']);
     Route::get('login', ['as' => 'auth.user', 'uses' => 'Auth\LoginController@index']);
     Route::post('login', ['as' => 'auth.login', 'uses' => 'Auth\LoginController@login']);
+
+    Route::post('senha/email', ['as' => 'auth.email', 'uses' => 'Auth\UserForgotPasswordController@sendResetLinkEmail']);
+    Route::get('senha/esqueci-senha', ['as' => 'auth.forget', 'uses' => 'Auth\UserForgotPasswordController@showLinkRequestForm']);
+    Route::post('senha/esqueci-senha', ['uses' => 'Auth\UserResetPasswordController@reset']);
+    Route::get('senha/esqueci-senha/{token}', ['as' => 'auth.reset', 'uses' => 'Auth\UserResetPasswordController@showResetForm']);
 });
 
 Route::group(['middleware' => 'auth'], function () {
