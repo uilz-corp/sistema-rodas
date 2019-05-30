@@ -2,7 +2,6 @@
 
 namespace App\Entities;
 
-use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Prettus\Repository\Traits\TransformableTrait;

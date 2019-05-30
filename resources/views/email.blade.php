@@ -17,7 +17,7 @@
             @endif
         </div>
 
-        <div class="row justify-content-center">
+        <div class="row text-center justify-content-center">
             <span class="ac-color help-block">
                 <strong>Enviaremos um e-mail para que você possa redefinir sua senha.</strong>
             </span>
@@ -26,7 +26,7 @@
         <div class="row justify-content-center">
             {!! Form::open(['route' => 'auth.email', 'class'=>'col-12', 'method' => 'post', 'id' => 'form-reset-password']) !!}
                 <div class="col text-center">
-                    @include('layout.formulario.input', ['class' => 'col-6', 'id' => 'email', 'input' => 'email', 'attributes' => 
+                    @include('layout.formulario.input', ['class' => 'col-12 col-md-6', 'id' => 'email', 'input' => 'email', 'attributes' => 
                     ['class' => 'form-control', 'placeholder' => 'E-mail', 'value' => '{{ old(\'email\') }}'],
                     'required' => 'true'])
                 </div>
