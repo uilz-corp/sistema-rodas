@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="container h-100">
-<div class="loading row h-100 justify-content-center align-items-center">
+<div style="" class="loading row justify-content-center align-items-center">
     <div style="width:80px; height:80px;" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></div>
 </div>
 </div>
