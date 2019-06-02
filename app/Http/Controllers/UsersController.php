@@ -74,6 +74,10 @@ class UsersController extends Controller
         $request = $this->service->store($request->all());
         $usuario = $request['success'] ? $request['data'] : $request['messages'];
 
+        if (!$request['success']){
+            $request['messages'] = $request['messages']->toArray();
+        }
+
         session()->flash('success', [
             'success' => $request['success'],
             'messages' => $request['messages']
@@ -93,6 +97,9 @@ class UsersController extends Controller
     {
         $id = $request->id;
         $user = $this->repository->find($id);
+
+        // $user['data_nasc'] = str_replace("-", "/", $user['data_nasc']);
+        // $user['data_nasc'] = date("d/m/Y", strtotime($user['data_nasc']));
 
         if (request()->wantsJson()) {
             return response()->json([
@@ -131,38 +138,51 @@ class UsersController extends Controller
      */
     public function update(Request $request)
     {
-        try {
+        $request = $this->service->update($request->all());
+        $usuario = $request['success'] ? $request['data'] : $request['messages'];
 
-            // $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
-
-            // dd($request->id);
-
-            $user = $this->repository->update($request->all(), $request->id);
-
-            $response = [
-                'message' => 'Usuário atualizado.',
-                'data'    => $user->toArray(),
-            ];
-
-            if ($request->wantsJson()) {
-
-                return response()->json($response);
-            }
-
-            // return redirect()->back()->with('message', $response['message']);
-            return redirect()->route('users.index');
-        } catch (ValidatorException $e) {
-
-            if ($request->wantsJson()) {
-
-                return response()->json([
-                    'error'   => true,
-                    'message' => $e->getMessageBag()
-                ]);
-            }
-
-            return redirect()->back()->withErrors($e->getMessageBag())->withInput();
+        if (!$request['success']){
+            $request['messages'] = $request['messages']->toArray();
         }
+
+        session()->flash('success', [
+            'success' => $request['success'],
+            'messages' => $request['messages']
+        ]);
+
+       return redirect()->route('users.index');
+        // try {
+
+        //     // $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
+
+        //     // dd($request->id);
+
+        //     $user = $this->repository->update($request->all(), $request->id);
+
+        //     $response = [
+        //         'message' => 'Usuário atualizado.',
+        //         'data'    => $user->toArray(),
+        //     ];
+
+        //     if ($request->wantsJson()) {
+
+        //         return response()->json($response);
+        //     }
+
+        //     // return redirect()->back()->with('message', $response['message']);
+        //     return redirect()->route('users.index');
+        // } catch (ValidatorException $e) {
+
+        //     if ($request->wantsJson()) {
+
+        //         return response()->json([
+        //             'error'   => true,
+        //             'message' => $e->getMessageBag()
+        //         ]);
+        //     }
+
+        //     return redirect()->back()->withErrors($e->getMessageBag())->withInput();
+        // }
     }
 
 

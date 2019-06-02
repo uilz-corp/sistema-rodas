@@ -13,6 +13,23 @@
 </head>
 <body>
 <div class="container h-100">
+<div class="row justify-content-center">
+    @if (session('success'))
+    @if (session('success')['success'])
+    <div class="position-fixed to-front alert alert-success" role="alert">
+        {{ session('success')['messages'] }}
+    </div>
+    @elseif (!session('success')['success'])
+    <div class="position-fixed to-front alert alert-danger" role="alert">
+        @foreach(session('success')['messages'] as $item)
+            @foreach($item as $message)
+            {{ $message }}<br>
+            @endforeach
+        @endforeach
+    </div>
+    @endif
+    @endif
+</div>
 <div style="" class="loading row justify-content-center align-items-center">
     <div style="width:80px; height:80px;" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></div>
 </div>

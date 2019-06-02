@@ -19,6 +19,9 @@
 
             {{--  incluso no form para funcionamento do form validate  --}}
             <div class="modal-footer" style="padding-bottom: 0em !important">
+                <label class="text-start">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Desativar</button>
+                </label>
                 <label>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                 </label>

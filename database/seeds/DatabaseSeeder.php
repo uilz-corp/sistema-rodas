@@ -18,10 +18,10 @@ class DatabaseSeeder extends Seeder
             'nome' => Str::random(10),
             'email' => Str::random(10).'@gmail.com',
             'senha' => bcrypt('123'),
-            'genero' => 'M',
+            // 'genero' => 'M',
             'perfil' => 'Administrador',
             'permissao' => 'admin',
-            'data_nasc' => '2000-01-01'
+            // 'data_nasc' => '2000-01-01'
         ]);
     }
 }

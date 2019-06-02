@@ -16,7 +16,7 @@
         'class' => 'form-control', 'placeholder' => 'E-mail'
     ]])
 </div>
-<div class="row justify-content-center">
+{{--  <div class="row justify-content-center">
     <label class="col-3 col-md-5 input">
         <span>Gênero</span>
         <select name="genero" data-validation="required" class="form-control blur-border-effect">
@@ -28,7 +28,7 @@
     @include('layout.formulario.input', ['class' => 'col-8 col-md-6',
     'label' => 'Data de nascimento', 'input' => 'data_nasc', 'attributes' => 
     ['disabled' => 'true', 'class' => 'form-control', 'placeholder' => 'Data de nascimento']])
-</div>
+</div>  --}}
 <div class="row justify-content-center">
     @include('layout.formulario.input', ['label' => 'CPF',
     'class' => 'col-11', 'input' => 'cpf',

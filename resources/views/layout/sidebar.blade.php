@@ -1,3 +1,4 @@
+
 <nav class="navbar fixed-top shadow-sm p-3 mb-5 rounded
 	justify-content-between ">
 	<div class="navbar-nav col px-3">
@@ -5,6 +6,7 @@
 			<img class="simple-logo sidebarCollapse" src="{{ asset('images/simple-logo-ac.png') }}" alt="menu-lateral">
 		</div>
 	</div>
+	
 	<div class="navbar-nav col-3 text-end px-3">
 		<div class="nav-item ">
 			<a class="button btn-sm btn btn-outline-primary ac-colors blur-border-effect" 

@@ -9,10 +9,6 @@
         </div>
         <div class="modal-body">
             <div class="row justify-content-center">
-                @if(session('success'))
-                    <h3>{{ session('success')['messages'] }}</h3>
-                @endif
-                
                 <div class="col-12">
                 {!! Form::open(['route' => $page['route'].'.store', 'method' => 'post']) !!}
                     @include('page.' . $page['page'] . '.fields.create' )
