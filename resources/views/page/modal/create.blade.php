@@ -16,15 +16,16 @@
                 <div class="col-12">
                 {!! Form::open(['route' => $page['route'].'.store', 'method' => 'post']) !!}
                     @include('page.' . $page['page'] . '.fields.create' )
+                    <div class="modal-footer" style="padding-bottom: 0em !important">
+                        <label>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        </label>
+                        @include('layout.formulario.submit', ['input' => 'Cadastrar', 'attributes' => 
+                            ['class' => 'btn btn-success', 'onclick' => 'loading()']])
+                    </div>
             </div>
         </div>
-        <div class="modal-footer" style="padding-bottom: 0em !important">
-            <label>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-            </label>
-            @include('layout.formulario.submit', ['input' => 'Cadastrar', 'attributes' => 
-                ['class' => 'btn btn-success', 'onclick' => 'loading()']])
-        </div>
+        
         {!! Form::close() !!}
         </div>
     </div>

@@ -122,3 +122,11 @@ thead{
     padding-top: 7rem; 
   }
 } */
+
+
+
+/* ERROR JQUERY MESSAGES */
+
+.help-block.form-error{
+	color: #b94a48;
+}
