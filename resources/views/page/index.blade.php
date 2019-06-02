@@ -25,4 +25,14 @@
     </div>
 </div>
 
+    @section('javascript')
+        <script>
+        $.validate({
+            modules : 'toggleDisabled',
+            disabledFormFilter : '#modal-create form, #modal-update form',
+            showErrorDialogs : false
+        });
+        </script>
+    @endsection
+
 @endsection

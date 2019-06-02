@@ -16,6 +16,8 @@
                 <div class="col-12">
                 {!! Form::open(['route' => $page['route'].'.store', 'method' => 'post']) !!}
                     @include('page.' . $page['page'] . '.fields.create' )
+
+                    {{--  incluso no form para funcionamento do form validate  --}}
                     <div class="modal-footer" style="padding-bottom: 0em !important">
                         <label>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>

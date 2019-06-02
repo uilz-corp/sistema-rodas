@@ -24,6 +24,9 @@ class UserService{
         try {
             //$this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
             $data['senha'] = bcrypt($data['senha']);
+            $data['data_nasc'] = str_replace("/", "-", $data['data_nasc']);
+            $data['data_nasc'] = date("Y-m-d", strtotime($data['data_nasc']));
+
             $usuario = $this->repository->create($data);
             
             return[

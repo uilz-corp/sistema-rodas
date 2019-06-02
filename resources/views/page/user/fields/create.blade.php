@@ -13,11 +13,13 @@
         ]])
     </div>
     <div class="row justify-content-center">
-        @include('layout.formulario.select', ['class' => 'col-3','select' => 'genero',
-        'options' => ['M' => 'Masculino', 'F' => 'Feminino'], 'attributes' => [
-            'class' => 'form-control', 'placeholder' => 'Gênero'
-        ]])
-        @include('layout.formulario.input', ['class' => 'col-8', 'input' => 'cpf', 'attributes' => [
+        <label class="col-5 input">
+            <select name="genero" class="form-control blur-border-effect">
+                <option value="M">Masculino</option>
+                <option value="F">Feminino</option>
+            </select>
+        </label>
+        @include('layout.formulario.input', ['class' => 'col-6', 'input' => 'cpf', 'attributes' => [
             'data-validation' => 'length',
             'data-validation-length' => "min14",
             'data-validation-error-msg' => 'O CPF está incorreto.',

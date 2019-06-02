@@ -118,7 +118,7 @@ function getData(e){
     },
     beforeSend: loading(),
     success: function(result){
-      var inputs = $('#form-update input');
+      var inputs = $('#form-update input, #form-update select');
 
       $.each(result.data, function(key, value) {
         inputs.filter(function() {

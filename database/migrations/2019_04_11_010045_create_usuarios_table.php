@@ -23,7 +23,7 @@ class CreateUsuariosTable extends Migration
             $table->string('senha');
             $table->string('genero');
             $table->string('cpf');
-            $table->string('data_nasc');
+            $table->date('data_nasc');
             $table->string('perfil');
 			$table->string('permissao');
 			

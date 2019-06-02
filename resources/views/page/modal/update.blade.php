@@ -16,14 +16,16 @@
             <div class="col-12">
             {!! Form::open(['route' => $page['route'] . '.update', 'method' => 'put', 'id' => 'form-update']) !!}
             @include('page.' . $page['page'] . '.fields.update')
+
+            {{--  incluso no form para funcionamento do form validate  --}}
+            <div class="modal-footer" style="padding-bottom: 0em !important">
+                <label>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </label>
+                @include('layout.formulario.submit', ['input' => 'Editar', 'attributes' => 
+                    ['class' => 'btn btn-primary', 'onclick' => 'loading()']])
+            </div>
         </div>
-    </div>
-    <div class="modal-footer" style="padding-bottom: 0em !important">
-        <label>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        </label>
-        @include('layout.formulario.submit', ['input' => 'Editar', 'attributes' => 
-            ['class' => 'btn btn-primary', 'onclick' => 'loading()']])
     </div>
     {!! Form::close() !!}
     </div>
