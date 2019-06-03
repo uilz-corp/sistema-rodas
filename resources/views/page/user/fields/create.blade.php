@@ -13,25 +13,30 @@
         ]])
     </div>
     <div class="row justify-content-center">
-        {{--  <label class="col-5 input">
-            <select name="genero" class="form-control blur-border-effect">
-                <option value="M">Masculino</option>
-                <option value="F">Feminino</option>
+        <label class="col-6 input">
+            <select name="formacao" class="form-control blur-border-effect">
+                <option value="SE">Sem escolaridade</option>
+                <option value="EI">Ensino Infantil</option>
+                <option value="EF">Ensino Fundamental</option>
+                <option value="EM">Ensino Médio</option>
+                <option value="ES">Ensino Superior</option>
             </select>
-        </label>  --}}
-        @include('layout.formulario.password', ['class' => 'col-5', 'input' => 'senha', 'attributes' => [
-            'data-validation' => 'required',
-            'data-validation-error-msg' => 'Este campo é obrigatório.',
-            'class' => 'form-control', 'placeholder' => 'Senha'
-        ]])
+        </label>
 
-        @include('layout.formulario.input', ['class' => 'col-6', 'input' => 'cpf', 'attributes' => [
+        @include('layout.formulario.input', ['class' => 'col-5', 'input' => 'cpf', 'attributes' => [
             'data-validation' => 'length',
             'data-validation-length' => "min14",
             'data-validation-error-msg' => 'O CPF está incorreto.',
             'class' => 'form-control', 'placeholder' => 'CPF'
         ]])
     </div>
+    {{--  <div class="row justify-content-center">
+        @include('layout.formulario.password', ['class' => 'col-11', 'input' => 'senha', 'attributes' => [
+            'data-validation' => 'required',
+            'data-validation-error-msg' => 'Este campo é obrigatório.',
+            'class' => 'form-control', 'placeholder' => 'Senha'
+        ]])
+    </div>  --}}
     <div class="row justify-content-center">
         @include('layout.formulario.input', ['class' => 'col-6','input' => 'perfil', 'attributes' => [
             'data-validation' => 'required',

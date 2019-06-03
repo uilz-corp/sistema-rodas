@@ -41,7 +41,7 @@ class LoginController extends Controller
 
     public function login(Request $request){
         $data = $request->only('cpf', 'password');
-        $data['cpf'] = str_replace(['.','-'], '', $data['cpf']);
+        // $data['cpf'] = str_replace(['.','-'], '', $data['cpf']);
 
         (new LoginValidator)->cpf($request);
 

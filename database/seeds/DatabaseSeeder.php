@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             // 'genero' => 'M',
             'perfil' => 'Administrador',
             'permissao' => 'admin',
+            'formacao' => 'ES',
             // 'data_nasc' => '2000-01-01'
         ]);
     }

@@ -30,8 +30,19 @@
     ['disabled' => 'true', 'class' => 'form-control', 'placeholder' => 'Data de nascimento']])
 </div>  --}}
 <div class="row justify-content-center">
+    <label class="col-6 input">
+        <span>Formação</span>
+        <select name="formacao" data-validation="required" class="form-control blur-border-effect">
+            <option value="SE">Sem escolaridade</option>
+            <option value="EI">Ensino Infantil</option>
+            <option value="EF">Ensino Fundamental</option>
+            <option value="EM">Ensino Médio</option>
+            <option value="ES">Ensino Superior</option>
+        </select>
+    </label>
+
     @include('layout.formulario.input', ['label' => 'CPF',
-    'class' => 'col-11', 'input' => 'cpf',
+    'class' => 'col-5', 'input' => 'cpf',
     'attributes' => ['class' => 'form-control', 'disabled' => 'true', 'placeholder' => 'CPF']])
 </div>
 <div class="row justify-content-center">

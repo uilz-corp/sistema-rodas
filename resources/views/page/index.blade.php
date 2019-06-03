@@ -4,6 +4,7 @@
 
 @include('page.modal.create')
 @include('page.modal.update')
+@include('page.modal.delete')
 
 <div class="card">
     <div class="card-header">

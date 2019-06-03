@@ -19,11 +19,13 @@
 
             {{--  incluso no form para funcionamento do form validate  --}}
             <div class="modal-footer" style="padding-bottom: 0em !important">
-                <label class="text-start">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Desativar</button>
+                <label class="mr-auto">
+                    <button type="button" class="btn btn-danger" onclick="$('#modal-delete').modal();">
+                    <i class="sm-feather" data-feather="trash-2"></i>
+                    </button>
                 </label>
                 <label>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                 </label>
                 @include('layout.formulario.submit', ['input' => 'Editar', 'attributes' => 
                     ['class' => 'btn btn-primary', 'onclick' => 'loading()']])

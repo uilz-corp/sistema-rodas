@@ -24,7 +24,7 @@ class User extends Authenticatable implements Transformable
     protected $table = 'usuarios';
 
     protected $fillable = [
-        'nome','senha','email','email_verified_at','genero','cpf','data_nasc','perfil','permissao'
+        'nome','senha','email','email_verified_at','genero','cpf','data_nasc','perfil','permissao', 'formacao'
     ];
 
     protected $hidden = [

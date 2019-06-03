@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Prettus\Validator\Exceptions\ValidatorException;
 use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Repositories\UserRepository;
 use App\Validators\UserValidator;
 use App\Services\UserService;
+use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 /**
  * Class UsersController.
@@ -18,6 +18,8 @@ use App\Services\UserService;
  */
 class UsersController extends Controller
 {
+    use SendsPasswordResetEmails;
+
     /**
      * @var UserRepository
      */
@@ -71,12 +73,17 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        $request = $this->service->store($request->all());
-        $usuario = $request['success'] ? $request['data'] : $request['messages'];
+        $email = $request->email;
+        $request = $this->service->store($request);
 
+        // Nova instância para redefinição da senha por e-mail
+        $instancia = new \Illuminate\Http\Request();
+        $instancia->replace(['email'=> $email]);
+        $this->sendResetLinkEmail($instancia);
+        
         if (!$request['success']){
             $request['messages'] = $request['messages']->toArray();
-        }
+        } 
 
         session()->flash('success', [
             'success' => $request['success'],
@@ -151,38 +158,6 @@ class UsersController extends Controller
         ]);
 
        return redirect()->route('users.index');
-        // try {
-
-        //     // $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
-
-        //     // dd($request->id);
-
-        //     $user = $this->repository->update($request->all(), $request->id);
-
-        //     $response = [
-        //         'message' => 'Usuário atualizado.',
-        //         'data'    => $user->toArray(),
-        //     ];
-
-        //     if ($request->wantsJson()) {
-
-        //         return response()->json($response);
-        //     }
-
-        //     // return redirect()->back()->with('message', $response['message']);
-        //     return redirect()->route('users.index');
-        // } catch (ValidatorException $e) {
-
-        //     if ($request->wantsJson()) {
-
-        //         return response()->json([
-        //             'error'   => true,
-        //             'message' => $e->getMessageBag()
-        //         ]);
-        //     }
-
-        //     return redirect()->back()->withErrors($e->getMessageBag())->withInput();
-        // }
     }
 
 
@@ -193,18 +168,19 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $deleted = $this->repository->delete($id);
+        $request = $this->service->delete($request->id);
 
-        if (request()->wantsJson()) {
-
-            return response()->json([
-                'message' => 'User deleted.',
-                'deleted' => $deleted,
-            ]);
+        if (!$request['success']){
+            $request['messages'] = $request['messages']->toArray();
         }
 
-        return redirect()->back()->with('message', 'User deleted.');
+        session()->flash('success', [
+            'success' => $request['success'],
+            'messages' => $request['messages']
+        ]);
+
+       return redirect()->route('users.index');
     }
 }

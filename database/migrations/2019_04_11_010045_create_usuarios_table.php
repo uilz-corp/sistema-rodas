@@ -26,6 +26,7 @@ class CreateUsuariosTable extends Migration
             // $table->date('data_nasc');
             $table->string('perfil');
 			$table->string('permissao');
+			$table->string('formacao', 2);
 			
 			$table->softDeletes();
             $table->timestamps();
