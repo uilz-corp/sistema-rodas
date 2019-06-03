@@ -51,6 +51,7 @@ class UsersController extends Controller
     public function index()
     {
         $data = $this->repository->all(['id','nome','email','perfil']);
+        $polos = \App\Entities\Polos::all();
         $page = [
             'tableTitle' => 'Usuários',
             'modalTitle' => 'usuário',
@@ -59,7 +60,7 @@ class UsersController extends Controller
             'route' => 'users'
         ];
         //return view('user.index', ['usuario' => $users]);
-        return view('page.index', ['data' => $data, 'page' => $page]);
+        return view('page.index', ['polos' => $polos,'data' => $data, 'page' => $page]);
     }
 
     /**

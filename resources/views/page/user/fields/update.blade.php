@@ -48,12 +48,22 @@
 <div class="row justify-content-center">
     @include('layout.formulario.input', ['label' => 'Perfil',
     'class' => 'col-6','input' => 'perfil', 'attributes' => [
-        'data-validation' => 'alphanumeric',
+        'data-validation' => 'required',
         'class' => 'form-control', 'placeholder' => 'Perfil'
     ]])
     @include('layout.formulario.input', ['label' => 'Permissão',
     'class' => 'col-5','input' => 'permissao', 'attributes' => [
-        'data-validation' => 'alphanumeric',
+        'data-validation' => 'required',
         'class' => 'form-control', 'placeholder' => 'Permissão'
     ]])
+</div>
+<div class="row justify-content-center">
+    <label class="col-11 input">
+        <span>Polo</span>
+        <select data-validation="required" name="id_polo" class="form-control blur-border-effect">
+            @foreach ($polos as $polo)
+                <option value="{{ $polo->id }}">{{ $polo->descricao }}</option>
+            @endforeach
+        </select>
+    </label>
 </div>

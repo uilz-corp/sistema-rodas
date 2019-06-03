@@ -10,7 +10,7 @@
     <tr id="{{ $d->id }}" class="clickable-row" onclick="getData(event)">
         <td>{{ $loop->iteration }}</td>
         <td>{{ $d->descricao }}</td>
-        <td>{{ $d->tipo_polo }}</td>
+        <td>{{ $d->tipo->descricao }}</td>
     </tr>
     @endforeach
 </tbody>

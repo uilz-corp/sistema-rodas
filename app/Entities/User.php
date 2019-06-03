@@ -24,12 +24,18 @@ class User extends Authenticatable implements Transformable
     protected $table = 'usuarios';
 
     protected $fillable = [
-        'nome','senha','email','email_verified_at','genero','cpf','data_nasc','perfil','permissao', 'formacao'
+        'nome','senha','email','email_verified_at','genero','cpf',
+        'data_nasc','perfil','permissao', 'formacao', 'id_polo'
     ];
 
     protected $hidden = [
         'senha'
     ];
+
+    public function polo()
+    {
+        return $this->belongsTo(Polos::class);
+    }
 
     public function getAuthPassword()
     {

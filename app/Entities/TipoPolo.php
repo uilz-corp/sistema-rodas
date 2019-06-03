@@ -7,11 +7,11 @@ use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
 /**
- * Class Polos.
+ * Class TipoPolo.
  *
  * @package namespace App\Entities;
  */
-class Polos extends Model implements Transformable
+class TipoPolo extends Model implements Transformable
 {
     use TransformableTrait;
 
@@ -20,15 +20,10 @@ class Polos extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = ['id','descricao', 'tipo_polo'];
+    protected $fillable = ['id','descricao'];
 
-    public function users()
+    public function polos()
     {
-        return $this->hasMany(User::class, 'id_polo');
-    }
-
-    public function tipo()
-    {
-        return $this->belongsTo(TipoPolo::class, 'tipo_polo');
+        return $this->hasMany(Polos::class);
     }
 }

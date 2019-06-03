@@ -18,7 +18,9 @@ class CreatePolosTable extends Migration
 		Schema::create('polos', function(Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('descricao');
-            $table->string('tipo_polo');
+
+			$table->bigInteger('tipo_polo');
+			$table->foreign('tipo_polo')->references('id')->on('tipo_polos');
 
             $table->timestamps();
 		});

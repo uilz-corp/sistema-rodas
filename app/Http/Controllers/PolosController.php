@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
 use App\Http\Requests\PolosCreateRequest;
 use App\Http\Requests\PolosUpdateRequest;
@@ -49,6 +47,7 @@ class PolosController extends Controller
     public function index()
     {
         $data = $this->repository->all();
+        $tipo_polos = \App\Entities\TipoPolo::all();
         $page = [
             'tableTitle' => 'Polos',
             'modalTitle' => 'polo',
@@ -56,7 +55,7 @@ class PolosController extends Controller
             'icon' => 'home',
             'route' => 'polos'
         ];
-        return view('page.index', ['data' => $data, 'page' => $page]);
+        return view('page.index', ['tipo_polos' => $tipo_polos,'data' => $data, 'page' => $page]);
     }
 
     /**

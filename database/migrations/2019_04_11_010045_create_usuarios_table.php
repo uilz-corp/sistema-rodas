@@ -27,6 +27,9 @@ class CreateUsuariosTable extends Migration
             $table->string('perfil');
 			$table->string('permissao');
 			$table->string('formacao', 2);
+
+			$table->bigInteger('id_polo');
+			$table->foreign('id_polo')->references('id')->on('polos');
 			
 			$table->softDeletes();
             $table->timestamps();

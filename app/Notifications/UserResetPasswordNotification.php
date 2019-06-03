@@ -45,7 +45,8 @@ class UserResetPasswordNotification extends Notification
         return (new MailMessage)
                     ->line('Você está recebendo este e-mail porque nós recebemos um pedido de redefinição de senha para a sua conta.')
                     ->action('Redefinir senha', route('auth.reset', $this->token))
-                    ->line('Se você não solicitou uma redefinição de senha, pode ignorar este e-mail.');
+                    ->line('Se você não solicitou uma redefinição de senha, pode ignorar este e-mail.')
+                    ->subject('A&C - Redefinição de senha');
     }
 
     /**

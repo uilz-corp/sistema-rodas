@@ -13,6 +13,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
+        DB::table('tipo_polos')->insert([
+            'descricao' => 'Tipo de polo 1',
+        ]);
+
+        DB::table('polos')->insert([
+            'descricao' => 'Polo 1',
+            'tipo_polo' => '1',
+        ]);
+
         DB::table('usuarios')->insert([
             'cpf' => '123',
             'nome' => Str::random(10),
@@ -22,6 +31,7 @@ class DatabaseSeeder extends Seeder
             'perfil' => 'Administrador',
             'permissao' => 'admin',
             'formacao' => 'ES',
+            'id_polo' => '1',
             // 'data_nasc' => '2000-01-01'
         ]);
     }

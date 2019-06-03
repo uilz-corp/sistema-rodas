@@ -49,6 +49,15 @@
             'class' => 'form-control', 'placeholder' => 'Permissão'
         ]])
     </div>
+    <div class="row justify-content-center">
+        <label class="col-11 input">
+            <select data-validation="required" name="id_polo" class="form-control blur-border-effect">
+                @foreach ($polos as $polo)
+                    <option value="{{ $polo->id }}">{{ $polo->descricao }}</option>
+                @endforeach
+            </select>
+        </label>
+    </div>
     {{--  <div class="row justify-content-center">
         @include('layout.formulario.input', ['class' => 'col-11','input' => 'data_nasc', 'attributes' => [
             'data-validation' => 'length',
