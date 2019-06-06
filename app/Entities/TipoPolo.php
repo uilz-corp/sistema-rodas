@@ -20,6 +20,8 @@ class TipoPolo extends Model implements Transformable
      *
      * @var array
      */
+    protected $table = 'TipoPolo';
+
     protected $fillable = ['id','descricao'];
 
     public function polos()

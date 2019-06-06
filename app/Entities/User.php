@@ -21,7 +21,7 @@ class User extends Authenticatable implements Transformable
     use Notifiable;
     use SoftDeletes;
    
-    protected $table = 'usuarios';
+    protected $table = 'Usuario';
 
     protected $fillable = [
         'nome','senha','email','email_verified_at','genero','cpf',

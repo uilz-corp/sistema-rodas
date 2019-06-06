@@ -20,6 +20,9 @@ class Subtemas extends Model implements Transformable
      *
      * @var array
      */
+
+    protected $table = 'SubTema';
+
     protected $fillable = ['descricao', 'id_tema'];
 
     public function tema()

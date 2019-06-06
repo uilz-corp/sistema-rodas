@@ -9,7 +9,7 @@
         </div>
         <div class="modal-body">
             <div class="row justify-content-center">
-                Tem certeza que deseja desativar este usuário?
+                Tem certeza que deseja desativar este {{ $page['modalTitle'] }}?
             </div>
         </div>
         <div class="modal-footer" style="padding-bottom: 0em !important">

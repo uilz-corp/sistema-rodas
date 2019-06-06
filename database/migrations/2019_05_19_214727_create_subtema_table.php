@@ -4,9 +4,9 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 /**
- * Class CreateTemasTable.
+ * Class CreateSubtemasTable.
  */
-class CreateTemasTable extends Migration
+class CreateSubTemaTable extends Migration
 {
 	/**
 	 * Run the migrations.
@@ -15,10 +15,12 @@ class CreateTemasTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('temas', function(Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('descricao');
+		Schema::create('SubTema', function(Blueprint $table) {
+			$table->bigIncrements('id');
+			$table->string('descricao');
+			$table->bigInteger('id_tema');
 
+			$table->foreign('id_tema')->references('id')->on('temas');
             $table->timestamps();
 		});
 	}
@@ -30,6 +32,6 @@ class CreateTemasTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('temas');
+		Schema::drop('SubTema');
 	}
 }

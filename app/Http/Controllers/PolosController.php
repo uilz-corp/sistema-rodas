@@ -166,18 +166,19 @@ class PolosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $deleted = $this->repository->delete($id);
+        $request = $this->service->delete($request->id);
 
-        if (request()->wantsJson()) {
-
-            return response()->json([
-                'message' => 'Polos deleted.',
-                'deleted' => $deleted,
-            ]);
+        if (!$request['success']){
+            $request['messages'] = $request['messages']->toArray();
         }
 
-        return redirect()->back()->with('message', 'Polos deleted.');
+        session()->flash('success', [
+            'success' => $request['success'],
+            'messages' => $request['messages']
+        ]);
+
+       return redirect()->route('polos.index');
     }
 }

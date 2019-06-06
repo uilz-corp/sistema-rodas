@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 /**
  * Class CreatePolosTable.
  */
-class CreatePolosTable extends Migration
+class CreatePoloTable extends Migration
 {
 	/**
 	 * Run the migrations.
@@ -15,12 +15,12 @@ class CreatePolosTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('polos', function(Blueprint $table) {
+		Schema::create('Polo', function(Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('descricao');
 
 			$table->bigInteger('tipo_polo');
-			$table->foreign('tipo_polo')->references('id')->on('tipo_polos');
+			$table->foreign('tipo_polo')->references('id')->on('TipoPolo');
 
             $table->timestamps();
 		});
@@ -33,6 +33,6 @@ class CreatePolosTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('polos');
+		Schema::drop('Polo');
 	}
 }

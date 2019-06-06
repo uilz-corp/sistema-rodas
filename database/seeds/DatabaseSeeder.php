@@ -13,16 +13,16 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-        DB::table('tipo_polos')->insert([
+        DB::table('TipoPolo')->insert([
             'descricao' => 'Tipo de polo 1',
         ]);
 
-        DB::table('polos')->insert([
+        DB::table('Polo')->insert([
             'descricao' => 'Polo 1',
             'tipo_polo' => '1',
         ]);
 
-        DB::table('usuarios')->insert([
+        DB::table('Usuario')->insert([
             'cpf' => '123',
             'nome' => Str::random(10),
             'email' => Str::random(10).'@gmail.com',

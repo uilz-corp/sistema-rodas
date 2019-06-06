@@ -26,11 +26,11 @@ class UserValidator extends LaravelValidator
      */
     protected $rules = [
         ValidatorInterface::RULE_CREATE => [
-            'email' => 'unique:usuarios,email',
-            'cpf' => 'unique:usuarios,cpf',
+            'email' => 'unique:Usuario,email',
+            'cpf' => 'unique:Usuario,cpf',
         ],
         ValidatorInterface::RULE_UPDATE => [
-            'email' => 'unique:usuarios,email',
+            'email' => 'unique:Usuario,email',
         ],
     ];
 

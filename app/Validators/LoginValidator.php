@@ -26,7 +26,7 @@ class LoginValidator extends Controller
             'exists' => 'CPF não cadastrado.',
         ];
         $rules = [
-            'cpf' => 'exists:usuarios'
+            'cpf' => 'exists:Usuario'
         ];
 
         $this->validate($request, $rules, $messages);

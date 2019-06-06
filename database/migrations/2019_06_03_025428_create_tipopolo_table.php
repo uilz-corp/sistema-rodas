@@ -6,7 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 /**
  * Class CreateTipoPolosTable.
  */
-class CreateTipoPolosTable extends Migration
+class CreateTipoPoloTable extends Migration
 {
 	/**
 	 * Run the migrations.
@@ -15,7 +15,7 @@ class CreateTipoPolosTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('tipo_polos', function(Blueprint $table) {
+		Schema::create('TipoPolo', function(Blueprint $table) {
 			$table->bigIncrements('id');
 			$table->string('descricao');
 
@@ -30,6 +30,6 @@ class CreateTipoPolosTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('tipo_polos');
+		Schema::drop('TipoPolo');
 	}
 }

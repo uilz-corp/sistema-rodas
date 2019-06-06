@@ -48,4 +48,35 @@ class PoloService{
             }
         }
     }
+
+    public function delete($id){
+        try {
+            $polo = $this->repository->find($id);
+            $this->repository->delete($id);
+
+            return[
+                'success' => true,
+                'messages' => "Polo $polo->nome desativado.",
+            ];
+            
+        } catch (Exception $th) {
+            switch (get_class($th)) {
+                case QueryException::class:
+                return ['success' => false, 'messages' =>  $th->getMessage()];
+                    break;
+                
+                case ValidatorException::class:
+                return ['success' => false, 'messages' =>  $th->getMessageBag()];
+                break;
+                
+                case Exception::class:
+                return ['success' => false, 'messages' =>  $th->getMessage()];
+                break;
+
+                default:
+                return ['success' => false, 'messages' =>  $th->getMessage()];
+                    break;
+            }
+        }
+    }
 }
